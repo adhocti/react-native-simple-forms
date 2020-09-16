@@ -34,7 +34,6 @@ export default class BaseMask {
 
   removeWhiteSpaces(text) {
     if (text) {
-      console.log(text);
       return text;
       return text.replace(/\s/g, '');
     }

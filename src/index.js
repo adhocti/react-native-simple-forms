@@ -1,20 +1,4 @@
 import BaseInput from './BaseInput';
-/* import FormContext from './FormContext';
-import Form from './Form';
-import Input from './Input';
-import Submit from './Submit';
-import FormScrollView from './FormScrollView';
-import BaseInput from './BaseInput';
-
-export default {
-  FormContext,
-  Form,
-  FormScrollView,
-  BaseInput,
-  Submit,
-  Input,
-};
-*/
 
 module.exports = {
   get FormContext() {

@@ -67,7 +67,7 @@ class Form extends Component {
   }
 
   componentWillReceiveProps() {
-    this.setData(this.props.data);
+    this.setData(this.getData(false));
   }
 
   componentWillUnmount() {
@@ -129,7 +129,6 @@ class Form extends Component {
           validate.extend(validate.validators[key], this.props.validationsExtend[key]);
         });
       }
-
 
       const validationResult = validate(data, validations);
       const validFields = validationResult

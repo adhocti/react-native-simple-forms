@@ -22,22 +22,21 @@ const styles = StyleSheet.create({
     height: 16,
     borderRadius: 8,
     borderWidth: 0.5,
-    borderColor: 'white',
+    borderColor: 'rgba(0,0,0,0.4)',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 8,
   },
   radioOptionButtonMark: {
-    width: 14,
-    height: 14,
+    width: 10,
+    height: 10,
     borderRadius: 10,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.5)',
   },
   radioOptionText: {
+    flex: 1,
     fontSize: 16,
-    color: 'white',
+    color: 'black',
   },
 });
 

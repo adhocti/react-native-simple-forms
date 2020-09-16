@@ -90,9 +90,7 @@ class BaseInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ['date', 'time', 'datetime'].indexOf(props.type) >= 0
-        ? this.getDateStr()
-        : null,
+      value: ['date', 'time', 'datetime'].includes(props.type) ? this.getDateStr() : null,
       error: null,
     };
   }
@@ -253,7 +251,6 @@ class BaseInput extends Component {
         this.DakePicker.onPressDate();
       }, 400);
     } else if (this.isSelectInput(this.props.type)) {
-      console.log('baseInput focus');
       setTimeout(() => {
         this.Select.focus();
       }, 400);
@@ -348,10 +345,10 @@ class BaseInput extends Component {
     );
   }
 
-  renderRadioOption(option, value) {
+  renderRadioOption(value, option) {
     return (
       <TouchableOpacity
-        style={styles.radioOption}
+        style={[styles.radioOption]}
         onPress={() => { this.setValue(value); }}
         key={value}
       >
@@ -366,8 +363,11 @@ class BaseInput extends Component {
 
   renderRadioOptions() {
     const { options } = this.props;
-    return Object.keys(options).foreach(
-      option => this.renderRadioOption(option, options[option]));
+    const keys = Object.keys(options);
+    if (!keys) {
+      return null;
+    }
+    return keys.map(option => this.renderRadioOption(option, options[option]));
   }
 
   renderSwitch() {
@@ -428,7 +428,7 @@ class BaseInput extends Component {
       return this.renderSwitch();
     }
 
-    if (['date', 'time', 'datetime'].indexOf(this.props.type) >= 0) {
+    if (['date', 'time', 'datetime'].includes(this.props.type)) {
       props.customStyles = props.dateCustomStyles;
       delete props.dateCustomStyles;
       return this.renderDatePicker(props);
